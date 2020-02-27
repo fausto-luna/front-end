@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+    <p id="demoVerdBlau">Tinc un cotxe de color verd</p>
+    <button onclick="verdBlau()">canvia verd per blau</button>
+    <button onclick="OperU()">canvia les 'o' per 'u'</button><br>
+    <p><H1>Exercici 7:</H1>
+      <h3>Donat el seguit llistat d’objectes ‘taula’, ‘cadira’, ‘ordinador’, ‘libreta’, <br>
+      fes servir un bucle que mostri per pantalla cada objecte i la seva posició al llistat.</h3>
+    </p>
+    <button  class='buttonPositions' onclick="showPosition()">mostrar posiciones</button>
+    <p id="demoObj"></p>
+    <h1>Ejercicio 8 - calculadora:</h1>
+        Introduce un número: <input type="text" id="num1Introducido" /><br>
+        Introduce una operación entre + - * /. <input type="text" id="opIntroducido" /><br>
+        Introduce un número: <input type="text" id="num2Introducido" /><br>
+        <input type="button" onClick="operacion()" Value="resultado"/>
+        <p id="demoCalculadora"></p>
+    <script>
+    // // Ejercicio 1 
+    console.log('hola mundo');
+    
+    // ejercicio 2
+    alert('Me llamo Fausto');
+    
+    // ejercicio 3
+    var nombre = 'Fausto ';
+    var apellido = 'Luna';
+    console.log(nombre + apellido);
+    
+    // ejercicio 4
+    let num1 = 100;
+    let num2 = 150;
+    resultado = num1 + num2;
+    console.log('La suma entre 100 y 150 es ' + resultado);
+    
+    // ejercicio 5
+    let notaExamen = parseInt(prompt('introduce la nota'))
+    if (notaExamen < 5){
+        alert('Ponte a estudiar porque has suspendido con una nota de ' + notaExamen)
+    }else{
+    alert('Aprobado con un ' + notaExamen +' !!!')
+    }
+    // // ejercicio 6
+    function verdBlau(){
+      var verd = document.getElementById("demoVerdBlau").innerHTML ; 
+      var res = verd.replace("verd", "blau");
+      document.getElementById("demoVerdBlau").innerHTML = res ;
+    }
+    function OperU() {
+        var palabra = document.getElementById('demoVerdBlau').textContent ;
+        var verd = document.getElementById("demoVerdBlau").innerHTML ; 
+        var res = verd.replace(/o/g, "u"); //Performs a global replacement: /'x'/g 
+      document.getElementById("demoVerdBlau").innerHTML = res ;
+    } 
+    //     //also:
+    //     //  var arrpalabra = palabra.split('');
+    //     // for(var i=0;i<arrpalabra.length;i++){
+    //     //     if(arrpalabra[i]=='o'){
+    //     //         arrpalabra[i]='u'
+    //     //     }
+    //     // }
+    //     // var result = arrpalabra.join('');
+    
+    // ejercicio 7
+    function showPosition(){
+      var object = ["taula", "cadira", "ordinador", "llibreta"];
+      var position = new Array();
+      for (i = 0 ; i < object.length; i++){
+        position.push(i);
+        document.getElementById('demoObj').innerHTML += ('el objeto ' + object[i] + ' está en la posición ' + position[i] + '<br>');
+      }
+    }
+
+    // ejercicio 8 
+
+    function operacion(){
+                    var resultado;
+                    var num1Introducido = parseInt(document.getElementById("num1Introducido").value);
+                    var num2Introducido = parseInt(document.getElementById("num2Introducido").value);
+                    var opIntroducido = document.getElementById("opIntroducido").value;
+
+                    switch(opIntroducido){
+                        case "+":
+                            resultado = (num1Introducido + num2Introducido);
+                            break;
+                        case "-":
+                            resultado = (num1Introducido - num2Introducido);
+                            break;
+                        case "/":
+                            resultado = (num1Introducido / num2Introducido);
+                            break;
+                        case "*": 
+                            resultado = (num1Introducido * num2Introducido);
+                            break;
+                        default:
+                            resultado = "WTF!!!";
+                            break;
+                    }
+                    document.getElementById("demoCalculadora").innerHTML = resultado;
+            }
+    </script>
+  
+</body>
+</html>
